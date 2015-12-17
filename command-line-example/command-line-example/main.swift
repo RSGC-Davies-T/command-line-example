@@ -54,7 +54,7 @@ repeat {
             print("Awesome, I love Cheerios!")
             
         case "B", "b":
-            print("My favourite it mango.")
+            print("My favourite is mango.")
             
         case "C", "c":
             print("Have you tried baked eggplant? Delectable!")
