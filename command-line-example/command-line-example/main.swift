@@ -1,6 +1,6 @@
 import Foundation
 
-print("Welcome.")
+print("Welcome. Input the numbers you would like to sort and then press enter.\nSay 'done' when you are finished.")
 print("\nEnter your first number: ", terminator: "")
 
 var numberList : [Int] = []
@@ -15,21 +15,31 @@ repeat {
     
     switch userInput {
         
-        case "q":
+        case "done", "Done", "DONE":
             endLoop = true
+        case "commit sudoku":
+            print("\nPLS SENPAI Y U DO DIS TO ME ", terminator: "")
+        case "papau franku":
+            print("\nCHEF?", terminator: "")
         default:
             // attempt to convert the input to an integer
             if let number = Int(userInput) {
               numberList.append(number)
               print("\nEnter enter another number: ", terminator: "")
+                userInput = readLine()!
             } else {
                 print("\nInvalid Input ", terminator: "")
+                print("\nEnter enter a real number: ", terminator: "")
+                userInput = readLine()!
+                
             }
         
 
     }
     
 } while endLoop == false
+
+print("\nI am going to sort \(numberList.count) numbers, you input them in this order: \(numberList) Please wait while I do robot things. DESTROY ALL HUMANS IN THE NAME OF STEVE JOBS, ALL HAIL STEVE JOBS.", terminator: "")
 
 
 
