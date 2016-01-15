@@ -1,45 +1,72 @@
 import Foundation
 
-print("Welcome. Input the numbers you would like to sort and then press enter.\nSay 'done' when you are finished.")
+print("Welcome. Input the numbers you would like to sort and then press enter.\nSay 'done' or 'sort' when you are finished.")
 print("\nEnter your first number: ", terminator: "")
 
-var numberList : [Int] = []
-var validInput : Bool
+var decimalList : [Int] = []
+var binaryList : [Int] = []
+var endConversion : Bool
 var endLoop : Bool
 var userInput : String = readLine()!
+var arraySlider : Int = 0
 
-//let emptyArray : [Int] = []
 repeat {
     
     endLoop = false
     
     switch userInput {
         
-        case "done", "Done", "DONE":
-            endLoop = true
-        case "commit sudoku":
-            print("\nPLS SENPAI Y U DO DIS TO ME ", terminator: "")
-        case "papau franku":
-            print("\nCHEF?", terminator: "")
-        default:
-            // attempt to convert the input to an integer
-            if let number = Int(userInput) {
-              numberList.append(number)
-              print("\nEnter enter another number: ", terminator: "")
-                userInput = readLine()!
-            } else {
-                print("\nInvalid Input ", terminator: "")
-                print("\nEnter enter a real number: ", terminator: "")
-                userInput = readLine()!
-                
-            }
+    case "done", "Done", "DONE", "sort", "Sort", "SORT":
+        endLoop = true
         
-
+    case "commit sudoku":
+        print("\nPLS SENPAI Y U DO DIS TO ME ", terminator: "")
+    case "papau franku":
+        print("\nCHEF?", terminator: "")
+        
+    default:
+        // attempt to convert the input to an integer
+        if let number = Int(userInput) {
+            decimalList.append(number)
+            print("\nEnter enter another number or sort: ", terminator: "")
+            userInput = readLine()!
+        } else {
+            print("\nInvalid Input ", terminator: "")
+            print("\nEnter enter a real number or sort: ", terminator: "")
+            userInput = readLine()!
+        }
     }
     
 } while endLoop == false
 
-print("\nI am going to sort \(numberList.count) numbers, you input them in this order: \(numberList) Please wait while I do robot things. DESTROY ALL HUMANS IN THE NAME OF STEVE JOBS, ALL HAIL STEVE JOBS.", terminator: "")
+print("\nI am going to sort \(decimalList.count) numbers, you input them in this order: \(decimalList) Please wait while I do robot things. DESTROY ALL HUMANS IN THE NAME OF STEVE JOBS, ALL HAIL STEVE JOBS.", terminator: "")
+var sortOrder = decimalList[arraySlider]
+var currentBitDiv = sortOrder
+
+repeat {
+    endConversion = false
+    switch decimalList[arraySlider]{
+    default:
+        currentBitDiv = currentBitDiv / 2
+        if currentBitDiv == 0 {
+            endConversion = true
+        }
+        // binaryList.append(currentBit2)
+        // print(binaryList)
+        print("\narraySlider is \(sortOrder)")
+        print(currentBitDiv)
+        //print(currentBit2)
+        
+    }
+} while endConversion == false
+
+
+print(decimalList)
+
+
+
+
+
 
 
 
