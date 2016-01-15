@@ -55,15 +55,12 @@ repeat {
             //binaryList.append(currentBitMod)
             endConversion = true
         }
-        // binaryList.append(currentBit2)
-        // print(binaryList)
-        //print(sortOrder)
         print("\ndiv is\(currentBitDiv)")
         print("\nmod is\(currentBitMod)")
         
     }
 } while endConversion == false
 
-
+binaryList = binaryList.reverse()
 print(binaryList)
 
