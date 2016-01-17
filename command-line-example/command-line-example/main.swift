@@ -15,6 +15,7 @@ var sortSlider = 0
 var endSort : Bool
 var endSecondarySort : Bool
 var endTertiarySort : Bool
+var cancelAction : Bool
 repeat {
     
     endLoop = false
@@ -107,77 +108,55 @@ highNumbers.removeAtIndex(0)
 lowNumbers.removeAtIndex(0)
 var numberChecker = 0
 var indivSlider = 0
-
+var lastCount = 0
+var currentHigh = 0
+var lastHigh = 1
+var currentLow = 0
+var lastLow = 0
+highNumbers.append(binarySort[sortSlider])
+sortSlider = sortSlider + 1
 //var currentcheck = 0
+var nowCount = 0
+print(highNumbers)
+print(lowNumbers)
+cancelAction = false
 repeat {
-    endSecondarySort = false
-    //currentcheck = binarySort[sortSlider]
-    indivListInitial = binarySort[sortSlider].count
-    
-    numberChecker = binarySort[sortSlider][indivListInitial-1]
-    repeat {
-        endSort = false
-        switch binarySort {
+    endSort = false
+    if sortList == sortSlider {
+    cancelAction = true
+    }
+    switch binarySort{
     default:
-            if indivSlider == 1{
-            switch highNumbers {
-    default:
-                if numberChecker == 1{
-                endSort = true
-                sortSlider = sortSlider + 1
-                print("\nHigh is: \(highNumbers)")
-            }
-            if numberChecker == 0{
-                    highNumbers.removeAtIndex(sortSlider)
-                    lowNumbers.append(binarySort[sortSlider])
-                    endSort = true
-                    sortSlider = sortSlider + 1
-                    print("\nLow is: \(lowNumbers)")
-            }
-            switch lowNumbers {
-                    default:
-                if numberChecker == 1{
-                lowNumbers.removeAtIndex(sortSlider)
-                highNumbers.append(binarySort[sortSlider])
-                endSort = true
-                sortSlider = sortSlider + 1
-                print("\nHigh is: \(highNumbers)")
-            }
-            if numberChecker == 0{
-                    endSort = true
-                    sortSlider = sortSlider + 1
-                    print("\nLow is: \(lowNumbers)")
-                        }
-                        
-                        
-        }
-            }
-        }
-        
-        if indivSlider == 0{
-            if numberChecker == 1 {
+                nowCount = binarySort[sortSlider].count
+            lastCount = binarySort[sortSlider-1].count
+        if nowCount > lastCount{
+            highNumbers.removeAtIndex(lastHigh-1)
             highNumbers.append(binarySort[sortSlider])
-            endSort = true
+            lowNumbers.append(binarySort[sortSlider-1])
+            lastHigh = lastHigh + 1
             sortSlider = sortSlider + 1
-            print("\nHigh is: \(highNumbers)")
-            
-            }
-            if numberChecker == 0 {
+            //endSort = true
+        }
+        if nowCount < lastCount {
                 lowNumbers.append(binarySort[sortSlider])
-                endSort = true
+                //highNumbers.removeAtIndex(lastHigh)
+                //highNumbers.append(binarySort[sortSlider-1])
+                lastLow = lastLow + 1
                 sortSlider = sortSlider + 1
-                print("\nLow is: \(lowNumbers)")
-            }
-            if sortList == sortSlider {
-//                    endSecondarySort = true
-                    indivListInitial = indivListInitial - 1
-                    indivSlider = indivSlider + 1
-            }
+                //endSort = true
         }
-        //master sorters
+        if nowCount == lastCount {
+                    highNumbers.append(binarySort[sortSlider-1])
+                    sortSlider = sortSlider + 1
+                    //endSort = true
         }
-    } while endSort == false
-} while endSecondarySort == false
+if sortSlider == sortList{
+                        endSort = true
+        }
+        nowCount = lastCount
+        
+    }
+} while endSort == false
 
 print("\nFinal high is: \(highNumbers)")
 print("\nFinal low is: \(lowNumbers)")
