@@ -171,201 +171,66 @@ low2.removeAtIndex(0)
 sortSlider = 1
 nowCount = 0
 var highList = highNumbers.count
-repeat {
-    endSort = false
-    switch highNumbers{
-    default:
-        if sortSlider == highList{
-            endSort = true
-        }
-        nowCount = highNumbers[sortSlider].count
-        lastCount = highNumbers[sortSlider-1].count
-        if nowCount > lastCount{
-            high1.append(binarySort[sortSlider])
-            lastHigh = lastHigh + 1
-            sortSlider = sortSlider + 1
-        }
-        if nowCount < lastCount {
-            high2.append(highNumbers[sortSlider])
-            lastLow = lastLow + 1
-            sortSlider = sortSlider + 1
-        }
-        if nowCount == lastCount {
-            high1.append(binarySort[sortSlider-1])
-            sortSlider = sortSlider + 1
-        }
-       
-        nowCount = lastCount
-    }
-}while endSort == false
 
-sortSlider = 1
-nowCount = 0
-var lowList = lowNumbers.count
-repeat {
-    endSort = false
-    switch lowNumbers{
-    default:
-        if sortSlider == lowList{
-            endSort = true
-        }
-        nowCount = lowNumbers[sortSlider].count
-        lastCount = lowNumbers[sortSlider-1].count
-        if nowCount > lastCount{
-            low1.append(binarySort[sortSlider])
-            lastHigh = lastHigh + 1
-            sortSlider = sortSlider + 1
-        }
-        if nowCount < lastCount {
-            low2.append(highNumbers[sortSlider])
-            lastLow = lastLow + 1
-            sortSlider = sortSlider + 1
-        }
-        if nowCount == lastCount {
-            low1.append(binarySort[sortSlider-1])
-            sortSlider = sortSlider + 1
-        }
-        
-        nowCount = lastCount
-    }
-}while endSort == false
-print("\nHigh 1 is: \(high1)")
-print("\nHigh 2 is: \(high2)")
-
-print("\nLow 1 is: \(low1)")
-print("\nLow 2 is: \(low2)")
-//var checkerSlider = 0
 //repeat {
+//    nowCount = highNumbers[sortSlider].count
+//    lastCount = highNumbers[sortSlider-1].count
 //    endSort = false
-//    switch high1 {
+//    switch highNumbers{
 //    default:
-//        if checkerSlider == high1.count{
+//        if sortSlider == highList{
 //            endSort = true
 //        }
-//        if high1[checkerSlider].count < 4{
-//            low2.append(high1[checkerSlider])
-//            high1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
+//        
+//        if nowCount > lastCount{
+//            high1.append(highNumbers[sortSlider])
+//            lastHigh = lastHigh + 1
+//            sortSlider = sortSlider + 1
 //        }
-//        if checkerSlider == high1.count{
-//            endSort = true
+//        if nowCount < lastCount {
+//            high2.append(highNumbers[sortSlider])
+//            lastLow = lastLow + 1
+//            sortSlider = sortSlider + 1
 //        }
-//        if high1[checkerSlider].count < 7{
-//            low1.append(high1[checkerSlider])
-//            high1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
+//        if nowCount == lastCount {
+//            high1.append(highNumbers[sortSlider-1])
+//            sortSlider = sortSlider + 1
 //        }
-//        if checkerSlider == high1.count{
-//            endSort = true
-//        }
-//        if high1[checkerSlider].count < 10{
-//            high2.append(high1[checkerSlider])
-//            high1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == high1.count{
-//            endSort = true
-//        }
+//       
+//        nowCount = lastCount
 //    }
 //}while endSort == false
-//checkerSlider = 0
+//
+//sortSlider = 1
+//nowCount = 0
+//var lowList = lowNumbers.count
+//
 //repeat {
+//    nowCount = lowNumbers[sortSlider].count
+//    lastCount = lowNumbers[sortSlider-1].count
 //    endSort = false
-//    switch high2 {
+//    switch lowNumbers{
 //    default:
-//        if checkerSlider == high2.count{
+//        if sortSlider == lowList{
 //            endSort = true
 //        }
-//        if high2[checkerSlider].count < 4{
-//            low2.append(high1[checkerSlider])
-//            high2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
+//        
+//        if nowCount > lastCount{
+//            low1.append(lowNumbers[sortSlider])
+//            lastHigh = lastHigh + 1
+//            sortSlider = sortSlider + 1
 //        }
-//        if checkerSlider == high2.count{
-//            endSort = true
+//        if nowCount < lastCount {
+//            low2.append(lowNumbers[sortSlider])
+//            lastLow = lastLow + 1
+//            sortSlider = sortSlider + 1
 //        }
-//        if high2[checkerSlider].count < 7{
-//            low1.append(high1[checkerSlider])
-//            high2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
+//        if nowCount == lastCount {
+//            low1.append(lowNumbers[sortSlider-1])
+//            sortSlider = sortSlider + 1
 //        }
-//        if checkerSlider == high2.count{
-//            endSort = true
-//        }
-//        if high2[checkerSlider].count > 10{
-//            high1.append(high1[checkerSlider])
-//            high2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == high2.count{
-//            endSort = true
-//        }
-//    }
-//}while endSort == false
-//repeat {
-//    endSort = false
-//    switch low1 {
-//    default:
-//        if checkerSlider == low1.count{
-//            endSort = true
-//        }
-//        if low1[checkerSlider].count < 4{
-//            low2.append(high1[checkerSlider])
-//            low1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low1.count{
-//            endSort = true
-//        }
-//        if low1[checkerSlider].count < 10{
-//            high2.append(high1[checkerSlider])
-//            low1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low1.count{
-//            endSort = true
-//        }
-//        if low1[checkerSlider].count > 10{
-//            high1.append(high1[checkerSlider])
-//            low1.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low1.count{
-//            endSort = true
-//        }
-//    }
-//}while endSort == false
-//repeat {
-//    endSort = false
-//    switch low2 {
-//    default:
-//        if checkerSlider == low2.count{
-//            endSort = true
-//        }
-//        if low2[checkerSlider].count < 7{
-//            low1.append(high1[checkerSlider])
-//            low2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low2.count{
-//            endSort = true
-//        }
-//        if low2[checkerSlider].count < 10{
-//            high2.append(high1[checkerSlider])
-//            low2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low2.count{
-//            endSort = true
-//        }
-//        if low2[checkerSlider].count > 10{
-//            high1.append(high1[checkerSlider])
-//            low2.removeAtIndex(checkerSlider)
-//            checkerSlider = checkerSlider + 1
-//        }
-//        if checkerSlider == low2.count{
-//            endSort = true
-//        }
+//        
+//        nowCount = lastCount
 //    }
 //}while endSort == false
 //print("\nHigh 1 is: \(high1)")
